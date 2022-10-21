@@ -14,14 +14,13 @@ import { UserController, PostController } from './controllers/index.js';
 mongoose
   .connect(process.env.MONGODB_URI)
   .then(() => console.log('DB ok'))
-  .catch((err) => console.log('DB error', err))
+  .catch((err) => console.log('DB error', err));
 
-const app = express()
-const PORT = 5000
+const app = express();
 
 const storage = multer.diskStorage({
-  destination: (_, _, cb) => {
-    if(!fs.existsSync('uploads')) {
+  destination: (_, __, cb) => {
+    if (!fs.existsSync('uploads')) {
       fs.mkdirSync('uploads');
     }
     cb(null, 'uploads');
@@ -62,10 +61,10 @@ app.patch(
   PostController.update,
 );
 
-
-app.listen(process.env.PORT | 5000, (err) => {
-  if(err) {
-    return console.log(err)
+app.listen(process.env.PORT || 5000, (err) => {
+  if (err) {
+    return console.log(err);
   }
-  console.log(`Server has been started in port ${PORT}`)
-})
+
+  console.log('Server OK');
+});
