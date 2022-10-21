@@ -1,4 +1,10 @@
 ### Tech Stack
 #### Backend
 * Express
-* express-validation
+* express-validator
+* cors
+* bcrypt
+* mongoose
+* multer
+* jsonwebtoken(JWT)
+* nodemon
